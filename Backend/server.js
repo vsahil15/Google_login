@@ -14,6 +14,7 @@ server.use(express.urlencoded({ extended: true }));
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
+  'https://google-login-xi.vercel.app/',
   ...(process.env.ALLOWED_ORIGINS
     ? process.env.ALLOWED_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean)
     : []),
@@ -50,10 +51,10 @@ server.use('/api/v1/auth', authRegisterRoutes);
 server.get('/api/v1/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 server.get(
   '/api/v1/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/login' }),
+  passport.authenticate('google', { failureRedirect: 'https://google-login-xi.vercel.app/login' }),
   (req, res) => {
     const email = req.user?.email || 'your account';
-    const redirectUrl = `http://localhost:5173/welcome?google=success&email=${encodeURIComponent(email)}`;
+    const redirectUrl = `https://google-login-xi.vercel.app/welcome?google=success&email=${encodeURIComponent(email)}`;
     res.redirect(redirectUrl);
   }
 );

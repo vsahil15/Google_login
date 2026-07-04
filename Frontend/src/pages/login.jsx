@@ -50,7 +50,7 @@ function Login() {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:4000/api/v1/auth/google';
+    window.location.href = 'https://googlelogin-production-3c33.up.railway.app/api/v1/auth/google';
   };
 
   return (
