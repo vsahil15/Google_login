@@ -1,7 +1,7 @@
 import axios from 'axios';
  
 const API = axios.create({
-    baseURL:'http://localhost:4000',
+    baseURL:'https://googlelogin-production-3c33.up.railway.app/',
     withCredentials:true,
 });
 
