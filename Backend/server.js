@@ -40,6 +40,10 @@ server.use(session({
 server.use(passport.initialize());
 server.use(passport.session());
 
+server.get('/', (req, res) => {
+  res.status(200).json({ message: 'Backend is running successfully.' });
+});
+
 server.use('/api/v1/auth', authLoginRoutes);
 server.use('/api/v1/auth', authRegisterRoutes);
 
