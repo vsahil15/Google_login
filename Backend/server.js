@@ -56,7 +56,7 @@ server.get(
   passport.authenticate('google', { failureRedirect: `${frontendUrl}/login` }),
   (req, res) => {
     const email = req.user?.email || 'your account';
-    const redirectUrl = `${frontendUrl}/welcome?google=success&email=${encodeURIComponent(email)}`;
+    const redirectUrl = `${frontendUrl}`;
     res.redirect(redirectUrl);
   }
 );
